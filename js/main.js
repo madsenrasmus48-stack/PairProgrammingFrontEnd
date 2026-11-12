@@ -2,8 +2,10 @@ const app = Vue.createApp({
     data(){
         listOfRecords: []
     },
-    Methods(){
-
+    methods:{
+    Get(){
+        axios.get("http://localhost:5296/")
+    }        
 
     }
 })
