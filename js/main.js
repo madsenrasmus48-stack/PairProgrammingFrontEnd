@@ -2,8 +2,10 @@ const app = Vue.createApp({
     data(){
         listOfRecords: []
     },
-    Methods(){
-
+    Methods:{
+        Get(){
+            axios.get('https://pairprogrammingrecordcontroller-duchh6bkgpdkh8ff.swedencentral-01.azurewebsites.net/api/record')
+        }
 
     }
 })
