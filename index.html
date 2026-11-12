@@ -2,22 +2,58 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>PairProgramming</title>
-        <!-- <link rel="stylesheet" href="./css/stylessheet.css"/> -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
-        
-        <!-- Latest compiled and minified CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Latest compiled JavaScript -->
+        <link rel="stylesheet" href="./css/stylessheet.css"/>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
     </head>
     <body>
-        
+        <main id="app" class="page-shell">
+            <div class="container py-5">
+                <header class="page-heading d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-4 mb-4">
+                    <div>
+                        <p class="eyebrow mb-2">DR Record Collection</p>
+                        <h1 class="display-5 fw-bold mb-2">Music records</h1>
+                        <p class="text-secondary mb-0">Browse the records in DR's record collection.</p>
+                    </div>
+                    <button class="btn btn-primary btn-lg load-button" @click="Get">
+                        Load records
+                    </button>
+                </header>
 
-
+                <section class="collection-card" aria-label="Music records">
+                    <div v-if="listOfRecords.length" class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Artist</th>
+                                    <th scope="col">Duration</th>
+                                    <th scope="col">Publication year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="record in listOfRecords" :key="record.id">
+                                    <td class="artist-name">{{ record.artist }}</td>
+                                    <td>{{ record.duration }}</td>
+                                    <td><span class="year-badge">{{ record.publicationYear }}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div v-else class="empty-state text-center">
+                        <div class="empty-state-mark mb-3" aria-hidden="true">♪</div>
+                        <h2 class="h5 fw-semibold mb-2">Your collection is waiting</h2>
+                        <p class="text-secondary mb-0">Select “Load records” to see your music here.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
         <script src="./js/main.js"></script>
+        <script>
+            const mountedApp = app.mount('#app')
+        </script>
     </body>
 </html>
