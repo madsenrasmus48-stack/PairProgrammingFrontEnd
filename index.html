@@ -22,16 +22,16 @@
                     <div class="filter-section">
                         <div class="row g-3">
                             <div class="col-md-3">
-                                <input type="text" class="form-control" placeholder="Filter by title" v-model="filterTitle">
+                                <input type="text" class="form-control" id="filterTitle" placeholder="Filter by title" v-model="filterTitle">
                             </div>
                             <div class="col-md-3">
-                                <input type="text" class="form-control" placeholder="Filter by artist" v-model="filterArtist">
+                                <input type="text" class="form-control" id="filterArtist" placeholder="Filter by artist" v-model="filterArtist">
                             </div>
                             <div class="col-md-3">
-                                <input type="text" class="form-control" placeholder="Filter by duration" v-model="filterDuration">
+                                <input type="text" class="form-control" id="filterDuration" placeholder="Filter by duration" v-model="filterDuration">
                             </div>
                             <div class="col-md-3">
-                                <input type="text" class="form-control" placeholder="Filter by publication year" v-model="filterPublicationYear">
+                                <input type="text" class="form-control" id="filterPublicationYear" placeholder="Filter by publication year" v-model="filterPublicationYear">
                             </div>
                         </div>
                     </div>
@@ -54,9 +54,9 @@
                             <tbody>
                                 <tr v-for="record in listOfRecords" :key="record.id">
                                     <td class="artist-name">{{ record.artist }}</td>
-                                    <td>{{ record.title }}</td>
-                                    <td>{{ record.duration }}</td>
-                                    <td><span class="year-badge">{{ record.publicationYear }}</span></td>
+                                    <td class="title">{{ record.title }}</td>
+                                    <td class="duration">{{ record.duration }}</td>
+                                    <td><span class="publication-year">{{ record.publicationYear }}</span></td>
                                 </tr>
                             </tbody>
                         </table>
