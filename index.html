@@ -19,7 +19,23 @@
                         <h1 class="display-5 fw-bold mb-2">Music records</h1>
                         <p class="text-secondary mb-0">Browse the records in DR's record collection.</p>
                     </div>
-                    <button class="btn btn-primary btn-lg load-button" @click="Get">
+                    <div class="filter-section">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" placeholder="Filter by title" v-model="filterTitle">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" placeholder="Filter by artist" v-model="filterArtist">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" placeholder="Filter by duration" v-model="filterDuration">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" placeholder="Filter by publication year" v-model="filterPublicationYear">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg load-button" @click="GetWithFilter">
                         Load records
                     </button>
                 </header>
@@ -30,6 +46,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Artist</th>
+                                    <th scope="col">Title</th>
                                     <th scope="col">Duration</th>
                                     <th scope="col">Publication year</th>
                                 </tr>
@@ -37,6 +54,7 @@
                             <tbody>
                                 <tr v-for="record in listOfRecords" :key="record.id">
                                     <td class="artist-name">{{ record.artist }}</td>
+                                    <td>{{ record.title }}</td>
                                     <td>{{ record.duration }}</td>
                                     <td><span class="year-badge">{{ record.publicationYear }}</span></td>
                                 </tr>
