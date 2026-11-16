@@ -2,7 +2,7 @@ app.component('login', {
     template:
     /*html*/
     `
-    <div V-if="loginStatus">Brugernavn: {{currentUser}}</div>
+    <div V-if="loginStatus" id="user-info">Brugernavn: {{currentUser}}</div>
     <div class="login">
         <h2>Login</h2>
         <div>
