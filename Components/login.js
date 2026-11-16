@@ -1,7 +1,9 @@
 app.component('login', {
     template:
     /*html*/
-    `<div class="login">
+    `
+    <div V-if="loginStatus">Brugernavn: {{currentUser}}</div>
+    <div class="login">
         <h2>Login</h2>
         <div>
             <div class="mb-3">
@@ -12,7 +14,7 @@ app.component('login', {
                 <label for="password" class="form-label">Password</label>
                 <input v-model="password" type="password" class="form-control" id="password" placeholder="Enter password">
             </div>
-            <button v-on:click="login" class="btn btn-primary">Login</button>
+            <button v-on:click="login" class="btn btn-primary" id="login-button">Login</button>
         </div>
     </div>`,
 
@@ -20,6 +22,8 @@ app.component('login', {
         return {
             username: '',
             password: '',
+            loginStatus: false,
+            currentUser: null
         }
     },
     methods: {
@@ -34,6 +38,11 @@ app.component('login', {
                 sessionStorage.setItem('token', response.data.token)
                 this.username = ''
                 this.password = ''
+
+                if (response.status === 200) {
+                    this.loginStatus = true
+                    this.currentUser = response.data.username
+                }
                 
             })
         }
