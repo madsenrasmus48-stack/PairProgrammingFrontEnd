@@ -1,4 +1,4 @@
-app.component('AddRecord', {
+app.component('addrecord', {
     template:
     /*html*/`
     <div class="filter-section">
@@ -15,8 +15,10 @@ app.component('AddRecord', {
             <div class="col-md-3">
                 <input type="text" class="form-control" id="createPublicationYear" placeholder="Enter publication year" v-model="createPublicationYear">
             </div>
+            <button v-on:click="Create" class="btn btn-primary" id="create-button">Create Record</button>
         </div>
     </div>`,
+
     data(){
         return{
             createTitle:'',
@@ -38,7 +40,7 @@ app.component('AddRecord', {
             .then(response => {
                 console.log(response.status)
                 console.log(response.data)
-                this.$emit('new-Record')
+                this.$emit('new-record')
             }
             )
         }

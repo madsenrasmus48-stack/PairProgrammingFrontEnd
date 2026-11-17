@@ -69,10 +69,12 @@
                         <p class="text-secondary mb-0">Select “Load records” to see your music here.</p>
                     </div>
                 </section>
-            </div>
+                <addrecord @new-record="Get"></addrecord>
+            </div>   
         </main>
         <script src="./js/main.js"></script>
         <script src="./Components/login.js"></script>
+        <script src="./Components/AddRecord.js"></script>
         <script>
             const mountedApp = app.mount('#app')
         </script>
