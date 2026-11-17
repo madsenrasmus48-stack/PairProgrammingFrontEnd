@@ -51,6 +51,7 @@
                                     <th scope="col">Title</th>
                                     <th scope="col">Duration</th>
                                     <th scope="col">Publication year</th>
+                                    <th scope="col">Delete record</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,6 +60,7 @@
                                     <td class="title">{{ record.title }}</td>
                                     <td class="duration">{{ record.duration }}</td>
                                     <td><span class="publication-year">{{ record.publicationYear }}</span></td>
+                                    <td><deleterecord :recordid="record.id"></deleterecord></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -75,6 +77,7 @@
         <script src="./js/main.js"></script>
         <script src="./Components/login.js"></script>
         <script src="./Components/AddRecord.js"></script>
+        <script src="./Components/DeleteRecord.js"></script>
         <script>
             const mountedApp = app.mount('#app')
         </script>
