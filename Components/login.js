@@ -1,8 +1,7 @@
 app.component('login', {
     template:
-    /*html*/
-    `
-    <div v-show="loginStatus" id="user-info">{{ 'Brugernavn: ' + currentUser }}</div>
+    /*html*/`
+    <div v-if="loginStatus" id="user-info">{{ 'Brugernavn: ' + currentUser }}</div>
     <div class="login">
         <h2>Login</h2>
         <div>
