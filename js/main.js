@@ -21,8 +21,8 @@ const app = Vue.createApp({
         },
         GetWithFilter(){
             axios
-            .get('https://pairprogrammingrecordcontroller-duchh6bkgpdkh8ff.swedencentral-01.azurewebsites.net/api/record/?title=' + this.filterTitle + '&artist=' + this.filterArtist + '&duration=' + this.filterDuration + '&publicationYear=' + this.filterPublicationYear)
-            //.get('http://localhost:5296/api/Record?title=' + this.filterTitle + '&artist=' + this.filterArtist + '&duration=' + this.filterDuration + '&publicationYear=' + this.filterPublicationYear)
+            //.get('https://pairprogrammingrecordcontroller-duchh6bkgpdkh8ff.swedencentral-01.azurewebsites.net/api/record/?title=' + this.filterTitle + '&artist=' + this.filterArtist + '&duration=' + this.filterDuration + '&publicationYear=' + this.filterPublicationYear)
+            .get('http://localhost:5296/api/Record?title=' + this.filterTitle + '&artist=' + this.filterArtist + '&duration=' + this.filterDuration + '&publicationYear=' + this.filterPublicationYear)
             .then(response => {
                 this.listOfRecords = response.data
                 console.log(this.listOfRecords)
